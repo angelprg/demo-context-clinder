@@ -3,15 +3,15 @@ import { LikeContext } from '../context/LikeContext';
 
 
 const Like = ({id}) => {
-  const {likes, setLikes} = useContext(LikeContext)
-
-  const liked = likes.includes(id)
+  
+  const valueContext = useContext(LikeContext)
+  const {isLiked, addLike, removeLike} = valueContext
+  const liked = isLiked(id)
 
   const handleClick = () => {
-    if (!liked) setLikes([...likes, id])
-    else setLikes(likes.filter((currentId)=>currentId!==id))
+    if (!liked) addLike(id)
+    else removeLike(id)
   }
-
   return (
     <span onClick={handleClick} style={{cursor: 'pointer'}}>
       {liked ? "❤️" : "🤍"}

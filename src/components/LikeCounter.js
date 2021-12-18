@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { LikeContext } from "../context/LikeContext";
 
 const LikeCounter = () => {
-  const { likes, setLikes } = useContext(LikeContext);
-  const handleClick = () => setLikes([]);
+  const { nLikes, emptyLikes } = useContext(LikeContext);
+
 
   return (
-    <span style={{ cursor: "pointer" }} onClick={handleClick}>
-      ❤️ = {likes.length}
+    <span style={{ cursor: "pointer" }} onClick={emptyLikes}>
+      ❤️ = {nLikes}
     </span>
   );
 };

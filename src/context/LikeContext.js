@@ -4,10 +4,21 @@ export const LikeContext = React.createContext()
 
 const LikeContextProvider = ({children}) => {
   const [likes, setLikes] = useState([]);
-  const [nombres, setNombres] = useState([])
+
+  const addLike = (id) => {
+    setLikes([...likes, id])
+  }
+  const removeLike = (id) => {
+    setLikes(likes.filter((currentId)=>currentId!==id))
+  }
+  const emptyLikes = () => setLikes([])
+
+  const nLikes = likes.length
+
+  const isLiked = (id) => likes.includes(id)
 
   return(
-    <LikeContext.Provider value={{ likes, setLikes, nombres, setNombres }}>
+    <LikeContext.Provider value={{ isLiked, nLikes, addLike, removeLike, emptyLikes }}>
       {children}
     </LikeContext.Provider>
   )

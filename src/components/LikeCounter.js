@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import LikeContext from "../context/LikeContext";
+import { LikeContext } from "../context/LikeContext";
 
 const LikeCounter = () => {
   const { likes, setLikes } = useContext(LikeContext);

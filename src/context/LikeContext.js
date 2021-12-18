@@ -1,5 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const LikeContext = React.createContext()
+export const LikeContext = React.createContext()
 
-export default LikeContext;
+const LikeContextProvider = ({children}) => {
+  const [likes, setLikes] = useState([]);
+  const [nombres, setNombres] = useState([])
+
+  return(
+    <LikeContext.Provider value={{ likes, setLikes, nombres, setNombres }}>
+      {children}
+    </LikeContext.Provider>
+  )
+}
+
+export default LikeContextProvider;

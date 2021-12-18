@@ -4,8 +4,8 @@ import Catalog from "./Catalog";
 import Navbar from "./Navbar";
 
 const App = () => {
-  const [likes, setLikes] = useState(0);
-
+  const [likes, setLikes] = useState([]);
+  console.log('likes: ', likes)
   return (
     <LikeContext.Provider value={{ likes, setLikes }}>
       <div>

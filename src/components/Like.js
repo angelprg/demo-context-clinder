@@ -1,20 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import LikeContext from '../context/LikeContext';
 
 
-const Like = () => {
+const Like = ({id}) => {
   const {likes, setLikes} = useContext(LikeContext)
-  const [liked, setLiked] = useState(false)
+
+  const liked = likes.includes(id)
 
   const handleClick = () => {
-    if (liked){
-      setLikes(likes - 1)
-      setLiked(false)
-    }
-    else {
-      setLikes(likes + 1)
-      setLiked(true)
-    }
+    if (!liked) setLikes([...likes, id])
+    else setLikes(likes.filter((currentId)=>currentId!==id))
   }
 
   return (

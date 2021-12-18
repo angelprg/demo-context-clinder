@@ -28,7 +28,7 @@ const Cards = ({ data }) => {
             <p className="card-text">
               <small className="text-muted">{data.email}</small>
             </p>
-            <Like />
+            <Like id={data.login.uuid} />
           </div>
         </div>
       </div>

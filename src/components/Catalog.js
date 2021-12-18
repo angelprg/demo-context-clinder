@@ -10,7 +10,7 @@ const Catalog = () => {
       .then((response) => response.json())
       .then((data) => setList(data.results));
   }, []);
-  console.log('list', list)
+
   return (
     <div className="d-flex flex-wrap">
       {list.map((user) => (

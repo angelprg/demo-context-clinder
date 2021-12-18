@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useContext } from "react";
+import LikeContext from "../context/LikeContext";
 
 const LikeCounter = () => {
-  return (
-    <div>
-      ❤️ = 0
-    </div>
-  )
-}
+  const { likes } = useContext(LikeContext);
 
-export default LikeCounter
+  return <div>❤️ = {likes}</div>;
+};
+
+export default LikeCounter;

@@ -1,26 +1,27 @@
-import React from 'react'
+import React, { useState, useContext } from "react";
+import LikeContext from '../context/LikeContext';
 
-const Like = ({likes, setLikes}) => {
 
-  // const [liked, setLiked] = useState(false)
+const Like = () => {
+  const {likes, setLikes} = useContext(LikeContext)
+  const [liked, setLiked] = useState(false)
 
-  // const handleClick = () => {
-  //   if (liked){
-  //     setLikes(likes - 1)
-  //     setLiked(false)
-  //   }
-  //   else {
-  //     setLikes(likes + 1)
-  //     setLiked(true)
-  //   }
-  // }
+  const handleClick = () => {
+    if (liked){
+      setLikes(likes - 1)
+      setLiked(false)
+    }
+    else {
+      setLikes(likes + 1)
+      setLiked(true)
+    }
+  }
 
-  // return (
-  //   <div onClick={handleClick}>
-  //     {liked ? "🤍" : "❤️"}
-  //   </div>
-  // )
-  return <div>🤍</div>
-}
+  return (
+    <span onClick={handleClick} style={{cursor: 'pointer'}}>
+      {liked ? "❤️" : "🤍"}
+    </span>
+  )
+};
 
-export default Like
+export default Like;
